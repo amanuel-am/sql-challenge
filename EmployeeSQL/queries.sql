@@ -143,3 +143,24 @@ WHERE d.dept_name = 'Sales') t
 ON e.emp_no = t.emp_no
 ORDER BY e.emp_no ASC;
 
+--Q7-----------------------------------------------------------------
+
+SELECT e.emp_no, e.last_name, e.first_name, d.dept_name 
+FROM employees e
+JOIN dept_emp de
+ON e.emp_no = de.emp_no
+JOIN departments d
+ON d.dept_no = de.dept_no
+WHERE d.dept_name = 'Sales' or d.dept_name = 'Development'
+ORDER BY e.emp_no ASC;
+
+--------------------------------------------------------------------
+SELECT DISTINCT dept_name
+FROM departments;
+
+--Q8----------------------------------------------------------------
+
+SELECT last_name, COUNT(emp_no) AS frequency
+FROM employees
+GROUP BY last_name
+ORDER BY frequency DESC;
