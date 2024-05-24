@@ -1,7 +1,7 @@
 --CREATE DEPARTMENTS TABLE---------------------------------
 
 CREATE TABLE departments(
-	dept_no VARCHAR(5) PRIMARY KEY,
+	dept_no VARCHAR(4) PRIMARY KEY,
 	dept_name VARCHAR(50)
 );
 
@@ -31,7 +31,7 @@ SELECT * FROM employees
 CREATE TABLE dept_emp(
 	dept_emp_id SERIAL PRIMARY KEY,
 	emp_no int NOT NULL,
-	dept_no VARCHAR(5) NOT NULL,
+	dept_no VARCHAR(4) NOT NULL,
 	FOREIGN KEY (emp_no) REFERENCES employees(emp_no),
 	FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 );
@@ -44,7 +44,7 @@ SELECT * FROM dept_emp
 
 CREATE TABLE dep_manager(
 	dept_manager_id SERIAL PRIMARY KEY,
-	dept_no VARCHAR(10) NOT NULL,
+	dept_no VARCHAR(4) NOT NULL,
 	emp_no int NOT NULL,
 	FOREIGN KEY (dept_no) REFERENCES departments(dept_no),
 	FOREIGN KEY (emp_no) REFERENCES employees(emp_no)	
